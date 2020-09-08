@@ -1,0 +1,30 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "airbnb"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "linebreak-style": ["off", "windows"],  //换行符设置
+        "comma-dangle": ["error", "never"], // 要求或禁止末尾逗号：不允许逗号
+        "indent": ["error", 2], // JavaScript代码强制使用一致的缩进：2格缩进
+        "react/jsx-indent": ["error", 2],  //react jsx-indent 2缩进
+        "react/jsx-indent-props": ["error", 2],  //react jsx-indent-props 2缩进
+    }
+}
