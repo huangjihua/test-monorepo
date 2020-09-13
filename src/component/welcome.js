@@ -1,11 +1,9 @@
-import React, {useContext} from 'react'
-import store from '../store'; // 子组件里调用
+import React, { useContext } from 'react'
+import store from '../store' // 子组件里调用
 
 function Child() {
-  const value =  useContext(store)
-    return(
-      <div>child-store {value.name}</div>
-    )
+  const value = useContext(store)
+  return <div>child-store {value.name}</div>
 }
 export default class Welcome extends React.Component {
   render() {
@@ -17,4 +15,3 @@ export default class Welcome extends React.Component {
     )
   }
 }
-
