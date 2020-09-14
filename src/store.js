@@ -7,7 +7,7 @@ export const initialState = { name: 'hank',count:0 };
  *
  * @export
  * @param {Object} state 状态
- * @param {*} action 
+ * @param {Object} action 
  * @returns 返回新的state
  */
 export function reducer(state, action) {

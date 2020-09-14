@@ -1,18 +1,20 @@
-import React from 'react'
-import creatStore from './redux'
+import React  from 'react'
+import createStore from './redux'
 import reducer from './reducer'
+import {Provider} from './react-redux'
+
 //  测试 createStore使用
 
-let initState = {
-  num: 10,
-}
-export const store = creatStore(reducer, initState)
+// let initState = {
+//   num: 10,
+// }
+// export const store = createStore(reducer, initState)
 
-//订阅
-store.subscribe(() => {
-  let state = store.getState()
-  console.log(state.num)
-})
+// //订阅
+// store.subscribe(() => {
+//   let state = store.getState()
+//   console.log(state.num)
+// })
 // // +1
 // store.dispatch({
 //  num: store.getState().num + 1
@@ -32,9 +34,9 @@ store.subscribe(() => {
 // store.dispatch({type:"minus", num:19})
 // store.dispatch({type:"changeNum", val:20})
 
+
 // 写个测试组件 展示
 const reduxTest = (props) => {
-  let { state } = props
   return (
     <div className="redux">
       <div>自定义redux测试用例</div>
@@ -45,9 +47,11 @@ const reduxTest = (props) => {
       >
         增加
       </button>
-      <div>Num:{state.num}</div>
+      <div>Num:{props.state.num}</div>
     </div>
   )
 }
+
+
 
 export default reduxTest
