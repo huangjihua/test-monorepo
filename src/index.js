@@ -11,6 +11,7 @@ import ReduxTestComp from './redux/reduxTestComp'
 import createStore from './redux/redux'
 import reducer from './redux/reducer'
 import {Provider} from './redux/react-redux';
+import './redux/redux.test'
 
 ReactDOM.render(<App />, document.getElementById('root'))
 

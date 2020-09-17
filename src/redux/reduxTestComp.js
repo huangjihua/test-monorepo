@@ -1,5 +1,7 @@
 import React from 'react'
 import { connect } from './react-redux'
+import { add } from './action'
+
 
 const mapStateToProps = state => {
   return {
@@ -9,13 +11,13 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     addNum:() => {
-      dispatch({type:'add'})
+      dispatch(add('reduxTestComp'))
     }
   }
 }
 // 写个测试组件 展示
 const reduxTestComp = (props) => {
-  debugger
+  // debugger
   return (
     <div className="redux">
       <div>自定义redux测试用例</div>
