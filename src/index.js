@@ -12,6 +12,8 @@ import createStore from './redux/redux'
 import reducer from './redux/reducer'
 import {Provider} from './redux/react-redux';
 import './redux/redux.test'
+import Count from './test/useState-test';
+import LoadList from './test/loading.test';
 
 ReactDOM.render(<App />, document.getElementById('root'))
 
@@ -22,15 +24,17 @@ ReactDOM.render(
     <Clock />
     <TestPortal />
     <WordAdder />
+    <Count/>
+    <LoadList />
   </div>,
   document.getElementById('main')
 )
 
 
-ReactDOM.render(   
-  <Provider store={createStore(reducer)}>        
-    <ReduxTestComp />    
-  </Provider>,     
+ReactDOM.render(
+  <Provider store={createStore(reducer)}>
+    <ReduxTestComp />
+  </Provider>,
  document.querySelector('.reduxBox')
 );
 
