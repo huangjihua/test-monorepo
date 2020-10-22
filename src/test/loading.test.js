@@ -12,7 +12,7 @@ const LoadList = (text) => {
           {item}adfada
         </div>
       ))}
-      <div className="scrollitem" ref={ref}>
+      <div className="scroll-item" ref={ref}>
         {loading ? 'loading' : text}
       </div>
     </>
