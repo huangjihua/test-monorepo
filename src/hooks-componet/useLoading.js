@@ -1,28 +1,28 @@
-import React,{useState, useEffect}from 'react';
+import { useState, useEffect } from 'react'
 const useLoading = (ref) => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true)
   useEffect(() => {
     if (!ref.current) {
-      return () => { }
+      return () => {}
     }
-    const node = ref.current;
+    const node = ref.current
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setLoading(false);
-          observer.unobserve(entry.target);
+          setLoading(false)
+          observer.unobserve(entry.target)
         }
-      });
-    });
+      })
+    })
     if (node != null) {
-      observer.observe(node);
+      observer.observe(node)
     }
 
     return () => {
-      observer.disconnect();
+      observer.disconnect()
     }
-  }, [ref]);
-  return loading;
+  }, [ref])
+  return loading
 }
 
-export default useLoading;
+export default useLoading
