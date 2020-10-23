@@ -26,7 +26,7 @@ module.exports = {
     { value: 'WIP', name: 'WIP:      Work in progress' },
   ],
 
-  scopes: [{ name: 'accounts' }, { name: 'admin' }, { name: 'exampleScope' }, { name: 'changeMe' }],
+  scopes: [{ name: 'hooks-component' }, { name: 'redux' }, { name: 'component' }, { name: 'test' }],
 
   allowTicketNumber: false,
   isTicketNumberRequired: false,

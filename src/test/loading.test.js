@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import useLoading from '../hooks-componet/useLoading'
+import useLoading from '../hooks-component/useLoading'
 
 const LoadList = (text) => {
   const ref = useRef(null)
