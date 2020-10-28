@@ -29,8 +29,8 @@
   },
   "plugins": [
     "promise", 
-    "react", 
-    "react-hooks"
+    "react",
+    // "react-hooks"
   ],
   "rules": {
     "linebreak-style": ["off", "windows"],  //换行符设置
@@ -113,8 +113,7 @@
     "react/no-multi-comp": 0, //防止每个文件有多个组件定义
     "flowtype/generic-spacing": 0, //泛型对象的尖括号中类型前后的空格规范
     "flowtype/space-after-type-colon": 0, //类型注解分号后的空格规范
-    // react-hooks
-    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/rules-of-hooks": "error",  // react-hooks
     "react-hooks/exhaustive-deps": "warn"
   }
 }
