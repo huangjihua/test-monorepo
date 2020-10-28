@@ -5,8 +5,7 @@ module.exports = {
     { value: 'docs', name: 'docs:     Documentation only changes' },
     {
       value: 'style',
-      name:
-        'style:    Changes that do not affect the meaning of the code\n            (white-space, formatting, missing semi-colons, etc)'
+      name: 'style: Changes that do not affect the meaning of the code\n            (white-space, formatting, missing semi-colons, etc)'
     },
     {
       value: 'refactor',
@@ -56,7 +55,6 @@ module.exports = {
     footer: 'List any ISSUES CLOSED by this change (optional). E.g.: #31, #34:\n',
     confirmCommit: 'Are you sure you want to proceed with the commit above?'
   },
-
   allowCustomScopes: true,
   allowBreakingChanges: ['feat', 'fix'],
   // skip any questions you want

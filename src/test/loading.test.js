@@ -8,11 +8,15 @@ const LoadList = (text) => {
   return (
     <>
       {arr.map((item, index) => (
-        <div className="card" key={index}>
+        <div className="card"
+          key={index}
+        >
           {item}adfada
         </div>
       ))}
-      <div className="scroll-item" ref={ref}>
+      <div className="scroll-item"
+        ref={ref}
+      >
         {loading ? 'loading' : text}
       </div>
     </>
