@@ -8,7 +8,7 @@ class ListOfWords extends React.PureComponent {
   }
 }
 
- export default class WordAdder extends React.Component {
+export default class WordAdder extends React.Component {
   constructor(props) {
     super(props); 
     this.text = '确定' // 简单属性可以更新

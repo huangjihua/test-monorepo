@@ -3,7 +3,7 @@ import reducer from './reducer'
 import { add,minus,changeNum } from './action'
 
 let initState = {
-  num: 12,
+  num: 12
 }
 const store = createStore(reducer, initState)
 // console.log(store.getState())

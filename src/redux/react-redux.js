@@ -54,9 +54,9 @@ export function connect (mapStateToProps, mapDispatchToProps) {
       render() {
         return (
           <Component 
-          {...this.props} // 传入该组件的props,需要由connect这个高阶组件原样传回原组件 
-          {...mapStateToProps(this.context.store.getState())} // 根据mapStateToProps把state挂到this.props上      
-          {...mapDispatchToProps(this.context.store.dispatch)} // 根据mapDispatchToProps把dispatch(action)挂到this.props上       
+            {...this.props} // 传入该组件的props,需要由connect这个高阶组件原样传回原组件 
+            {...mapStateToProps(this.context.store.getState())} // 根据mapStateToProps把state挂到this.props上      
+            {...mapDispatchToProps(this.context.store.dispatch)} // 根据mapDispatchToProps把dispatch(action)挂到this.props上       
           />
         )
       }

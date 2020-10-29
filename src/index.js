@@ -14,30 +14,31 @@ import { Provider } from './redux/react-redux'
 import './redux/redux.test'
 import Count from './test/useState-test'
 import LoadList from './test/loading.test'
+import "antd/dist/antd.css";
 
 ReactDOM.render(<App />, document.getElementById('root'))
 
-ReactDOM.render(
-  <div>
-    <Welcome name="hank" />
-    <Clock />
-    <Clock />
-    <TestPortal />
-    <WordAdder />
-    <Count />
-    <div className="load-list"></div>
-  </div>,
-  document.getElementById('main')
-)
+// ReactDOM.render(
+//   <div>
+//     <Welcome name="hank" />
+//     <Clock />
+//     <Clock />
+//     <TestPortal />
+//     <WordAdder />
+//     <Count />
+//     <div className="load-list"></div>
+//   </div>,
+//   document.getElementById('main')
+// )
 
-ReactDOM.render(
-  <Provider store={createStore(reducer)}>
-    <ReduxTestComp />
-  </Provider>,
-  document.querySelector('.reduxBox')
-)
+// ReactDOM.render(
+//   <Provider store={createStore(reducer)}>
+//     <ReduxTestComp />
+//   </Provider>,
+//   document.querySelector('.reduxBox')
+// )
 
-ReactDOM.render(<LoadList text="暂无更多内容" />, document.querySelector('.load-list'))
+// ReactDOM.render(<LoadList text="暂无更多内容" />, document.querySelector('.load-list'))
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

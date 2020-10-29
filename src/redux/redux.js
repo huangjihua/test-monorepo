@@ -60,7 +60,7 @@ const createStore = (reducer, initState = { num: 10 }) => {
   return {
     subscribe,
     dispatch,
-    getState,
+    getState
   }
 }
 

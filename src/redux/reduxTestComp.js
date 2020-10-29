@@ -24,7 +24,8 @@ const reduxTestComp = (props) => {
       <button
         onClick={() => {
           props.addNum()
-        }}>
+        }}
+      >
         增加
       </button>
       <div>Num:{props.num}</div>
