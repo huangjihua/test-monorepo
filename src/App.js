@@ -1,27 +1,26 @@
-import React, { useReducer } from 'react';
-import store, { reducer, initialState } from './store';  // 根组件挂载即可全局使用
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Divider } from "antd";
-import Stateless from "./component/stateless";
-import Stateful from "./component/stateful";
-import inheritHOC from "./classComponent/HOC/hoc";
-import BindHoc from "./classComponent/HOC/bind-hoc";
-import Base from "./classComponent/HOC/base";
-import Input from "./component/input";
-import Hooks from "./hooks-component/";
-import GroupButton, { Button } from "./classComponent/Base/group-button";
-import logo from './logo.svg';
-import './App.css';
-import EditUser from './classComponent/HOC/ToggleVisible';
+import React, { useReducer } from 'react'
+import store, { reducer, initialState } from './store' // 根组件挂载即可全局使用
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { Divider, Layout, Menu, Breadcrumb } from 'antd'
+import StatePage from './pages/StateComponent/index'
+import HotIndex from './pages/hoc/index'
+import BindHoc from './pages/hoc/bind-hoc'
+import Input from './component/input'
+import { demoSync, demoUseState } from './hooks-component/'
+import GroupButton, { Button } from './classComponent/Base/group-button'
+import logo from './logo.svg'
+import './App.css'
+// import EditUser from './classComponent/HOC/ToggleVisible';
 
+import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons'
 
-const Hoc = inheritHOC(Stateful);
+const { SubMenu } = Menu
+const { Header, Content, Sider } = Layout
 
-const HocBase = inheritHOC(Base);
-const InputBind = BindHoc(Input);
+const InputBind = BindHoc(Input)
 
 function App() {
-  const [state,dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState)
 
   // return (
   //   <store.Provider value={{state,dispatch}}>
@@ -43,64 +42,97 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <div>
-          <Link to="/">组件发展</Link>
-          <Link to="/hooks">hooks 学习</Link>
-          <Link to="/combine-component">组合组件</Link>
-          <Link to="/page">Table</Link>
-          <Link to="/deep-hook">深入hook用法</Link>
-          <Link to="/unstated-next">unstated-next状态管理</Link>
-          <Link to="/react-memo">react-memo</Link>
-
-          <Divider />
-          <p>globalState-{state.name} : {state.count}</p>
-          <Divider />
-          <Switch>
-            <Route exact
-              path="/"
-            >
-              <p>Stateless </p>
-              <Stateless />
-              <p>Stateful </p>
-              <Stateful />
-              <p>HOC </p>
-              <HocBase />
-              <p>HOC JSON化数据</p>
-              <Hoc data={[1, [2, [3, [4, [5, [6, 7]]]]]]} />
-            </Route>
-            <Route path="/hooks">
-              <Hooks />
-            </Route>
-            <Route path="/combine-component">
-              <p>组合式组件</p>
-              <GroupButton
-                onChange={e => {
-                  console.log("onChange", e);
+        <Layout>
+          <Layout>
+            <Sider className="site-layout-background" width={200}>
+              <Menu
+                defaultOpenKeys={['sub1']}
+                defaultSelectedKeys={['1']}
+                mode="inline"
+                style={{ height: '100%', borderRight: 0 }}
+              >
+                <SubMenu icon={<UserOutlined />} key="sub1" title="组件">
+                  <Menu.Item key="1">
+                    <Link to="/">组件发展</Link>
+                  </Menu.Item>
+                  <Menu.Item key="2">
+                    <Link to="/combine-component">组合组件</Link>
+                  </Menu.Item>
+                </SubMenu>
+                <SubMenu icon={<LaptopOutlined />} key="sub2" title="Hooks">
+                  <Menu.Item key="5">
+                    <Link to="/hooks">hooks 学习</Link>
+                  </Menu.Item>
+                  <Menu.Item key="6">
+                    <Link to="/deep-hook">深入hook用法</Link>
+                  </Menu.Item>
+                  <Menu.Item key="7">
+                    <Link to="/unstated-next">unstated-next状态管理</Link>
+                  </Menu.Item>
+                  <Menu.Item key="8">
+                    <Link to="/react-memo">react-memo</Link>
+                  </Menu.Item>
+                </SubMenu>
+                <SubMenu icon={<NotificationOutlined />} key="sub3" title="Reduce">
+                  <Menu.Item key="9">自定义reduce</Menu.Item>
+                </SubMenu>
+              </Menu>
+            </Sider>
+            <Layout style={{ padding: '0 24px 24px' }}>
+              <Content
+                className="site-layout-background"
+                style={{
+                  padding: 24,
+                  margin: 0,
+                  minHeight: 280,
                 }}
               >
-                <Button value="red">red</Button>
-                <Button value="yellow">yellow</Button>
-                <Button value="blue">blue</Button>
-                <Button value="white">white</Button>
-              </GroupButton>
-            </Route>
-            {/* <Route path="/page">
-              <Page />
-            </Route>
-            <Route path="/deep-hook">
-              <DeepLearn />
-            </Route>
-            <Route path="/unstated-next">
-              <UnStatedNext />
-            </Route>
-            <Route path="/react-memo">
-              <ReactMemo />
-            </Route> */}
-          </Switch>
-        </div>
+                <Divider />
+                <p>
+                  globalState-{state.name} : {state.count}
+                </p>
+                <Divider />
+                <Switch>
+                  <Route exact path="/">
+                    <StatePage />
+                    <HotIndex />
+                  </Route>
+                  <Route path="/hooks">
+                    <demoSync />
+                  </Route>
+                  <Route path="/combine-component">
+                    <p>组合式组件</p>
+                    <GroupButton
+                      onChange={(e) => {
+                        console.log('onChange', e)
+                      }}
+                    >
+                      <Button value="red">red</Button>
+                      <Button value="yellow">yellow</Button>
+                      <Button value="blue">blue</Button>
+                      <Button value="white">white</Button>
+                    </GroupButton>
+                  </Route>
+                  {/* <Route path="/page">
+                      <Page />
+                    </Route>
+                    <Route path="/deep-hook">
+                      <DeepLearn />
+                    </Route>
+                    <Route path="/unstated-next">
+                      <UnStatedNext />
+                    </Route>
+                    <Route path="/react-memo">
+                      <ReactMemo />
+                    </Route> */}
+                </Switch>
+              </Content>
+            </Layout>
+          </Layout>
+        </Layout>
       </Router>
     </div>
   )
 }
 
-export default App;
+export default App

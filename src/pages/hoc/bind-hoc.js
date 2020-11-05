@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react'
 
 function BindHoc(Component) {
   return class HocComponent extends React.Component {
     constructor(props) {
-      super(props);
+      super(props)
       this.state = {
-        value: this.props.initialvalue || ""
-      };
+        value: this.props.initialvalue || '',
+      }
     }
-    onChange = e => {
-      this.setState({ value: e.target.value });
-    };
+    onChange = (e) => {
+      this.setState({ value: e.target.value })
+    }
 
     render() {
       // const { forwardRef, ...rest } = this.props;
@@ -23,11 +23,11 @@ function BindHoc(Component) {
       const newProps = {
         value: this.state.value,
         onChange: this.onChange,
-        ...this.props
-      };
-      return <Component {...newProps} />;
+        ...this.props,
+      }
+      return <Component {...newProps} />
     }
-  };
+  }
 }
 
-export default BindHoc;
+export default BindHoc

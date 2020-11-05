@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
 function getDisplayName(WrappedComponent) {
-  return WrappedComponent.displayName || WrappedComponent.name || "Component";
+  return WrappedComponent.displayName || WrappedComponent.name || 'Component'
 }
 
 function inheritHOC(WrappedComponent) {
@@ -11,16 +11,16 @@ function inheritHOC(WrappedComponent) {
     // ...
     getName = () => {
       // console.log("onChangeName");
-      return "inheritHOC-Name";
-    };
+      return 'inheritHOC-Name'
+    }
     render() {
       // console.log("继承WrappedComponent-props:", this.props);
-      // console.log("继承WrappedComponent-state:", this.state);
+      console.log('继承WrappedComponent-state:', this.state)
       // return super.render();
       // return <div className="hoc">{super.render()}</div>;
-      return <div className="hoc">{super.render()}</div>;
+      return <div className="hoc">{super.render()}</div>
     }
-  };
+  }
 }
 
-export default inheritHOC;
+export default inheritHOC
