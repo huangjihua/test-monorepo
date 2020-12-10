@@ -8,7 +8,6 @@ function inheritHOC(WrappedComponent) {
   // 继承
   return class Component extends WrappedComponent {
     // static displayName = `HOC(${getDisplayName(WrappedComponent)})`;
-    // ...
     getName = () => {
       // console.log("onChangeName");
       return 'inheritHOC-Name'

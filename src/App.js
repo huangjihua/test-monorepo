@@ -1,3 +1,4 @@
+/* eslint-disable no-extra-semi */
 import React, { useReducer } from 'react'
 import store, { reducer, initialState } from './store' // 根组件挂载即可全局使用
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
@@ -13,6 +14,8 @@ import './App.css'
 // import EditUser from './classComponent/HOC/ToggleVisible';
 import Ustate from './pages/hooks/useState'
 import { EffectDemo1, EffectDemo2, EffectDemo3 } from './pages/hooks/useEffect'
+import RenderPropsMouseTracker from './pages/render-props'
+import RenderPropsMouseTracker2 from './pages/render-props/index2'
 
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons'
 
@@ -21,49 +24,72 @@ const { Header, Content, Sider } = Layout
 
 const InputBind = BindHoc(Input)
 
-const HooksMenuItem = () => {
-  return (
-    <>
+// 利用 Render props 包下
+class Menus extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    return (
       <Menu
         defaultOpenKeys={['sub1']}
         defaultSelectedKeys={['1']}
         mode="inline"
         style={{ height: '100%', borderRight: 0 }}
       >
-        <SubMenu icon={<LaptopOutlined />} key="sub1" title="组件">
-          <Menu.Item key="1">
-            <Link to="/">组件发展</Link>
-          </Menu.Item>
-          <Menu.Item key="2">
-            <Link to="/combine-component">组合组件</Link>
-          </Menu.Item>
-        </SubMenu>
-
-        <SubMenu icon={<LaptopOutlined />} key="sub2" title="Hooks">
-          <Menu.Item key="1">
-            <Link to="/hooks/useState">useState</Link>
-          </Menu.Item>
-          <Menu.Item key="2">
-            <Link to="/hooks/useEffect">useEffect</Link>
-          </Menu.Item>
-
-          <Menu.Item key="5">
-            <Link to="/hooks">hooks 学习</Link>
-          </Menu.Item>
-          <Menu.Item key="6">
-            <Link to="/deep-hook">深入hook用法</Link>
-          </Menu.Item>
-          <Menu.Item key="7">
-            <Link to="/unstated-next">unstated-next状态管理</Link>
-          </Menu.Item>
-          <Menu.Item key="8">
-            <Link to="/react-memo">react-memo</Link>
-          </Menu.Item>
-        </SubMenu>
-        <SubMenu icon={<LaptopOutlined />} key="sub3" title="Reduce">
-          <Menu.Item key="9">自定义reduce</Menu.Item>
-        </SubMenu>
+        {this.props.list.map((subMenu) => (
+          <SubMenu icon={<LaptopOutlined />} key={subMenu.key} title={subMenu.title}>
+            {subMenu.list.map((item, num) => (
+              <Menu.Item key={num + 1}>
+                <Link to={item.to}>{item.name}</Link>
+              </Menu.Item>
+            ))}
+          </SubMenu>
+        ))}
       </Menu>
+    )
+  }
+}
+
+const HooksMenuItem = () => {
+  return (
+    <>
+      <Menus
+        list={[
+          {
+            key: 'sub1',
+            title: 'HOC-组合-Render Props',
+            list: [
+              { to: '/', name: 'HOC' },
+              { to: '/combine-component', name: '组合组件' },
+              { to: '/render-props', name: 'Render Props' },
+            ],
+          },
+          {
+            key: 'sub2',
+            title: 'Hooks',
+            list: [
+              { to: '/hooks/useState', name: 'useState' },
+              { to: '/hooks/useEffect', name: 'useEffect' },
+              { to: '/hooks/hooks', name: 'hooks 学习' },
+              { to: '/hooks/deep-hook', name: '深入hook用法' },
+              { to: '/hooks/unstated-next', name: 'unstated-next状态管理' },
+              { to: '/hooks/react-memo', name: 'react-memo' },
+            ],
+          },
+          {
+            key: 'sub3',
+            title: 'Reduce',
+            list: [
+              {
+                to: '/reduce/custom-reduce',
+                name: '自定义reduce',
+              },
+            ],
+          },
+        ]}
+        title="组件"
+      />
     </>
   )
 }
@@ -124,10 +150,13 @@ function App() {
                       <Button value="white">white</Button>
                     </GroupButton>
                   </Route>
-                  {/* <Route path="/page">
-                      <Page />
-                    </Route>
-                    <Route path="/deep-hook">
+
+                  <Route path="/render-props">
+                    <RenderPropsMouseTracker />
+
+                    <RenderPropsMouseTracker2 />
+                  </Route>
+                  {/* <Route path="/deep-hook">
                       <DeepLearn />
                     </Route>
                     <Route path="/unstated-next">
