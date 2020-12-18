@@ -38,7 +38,7 @@
   "rules": {
     "linebreak-style": ["off", "windows"],  //换行符设置
     // "comma-dangle": ["error", "never"], // 要求或禁止末尾逗号：不允许逗号
-    "indent": ["error", 2], // JavaScript代码强制使用一致的缩进：2格缩进
+    "indent": 0, // JavaScript代码强制使用一致的缩进：2格缩进
     "react/jsx-indent": ["error", 2],  //react jsx-indent 2缩进
     "react/jsx-indent-props": ["error", 2],  //react jsx-indent-props 2缩进
     "no-compare-neg-zero": 2, //禁止与 -0 进行比较
@@ -89,7 +89,7 @@
     "require-yield": 2, //要求 generator 函数内有 yield
     "no-mixed-spaces-and-tabs": 1, //要求不适用space，tab混用
     "react/forbid-prop-types": [1, { "forbid": ["any"] }], //禁止某些propTypes
-    "react/prop-types": 1, //没用对props类型进行校验
+    "react/prop-types": 0, //没用对props类型进行校验
     "react/jsx-closing-bracket-location": 1, //在JSX中验证右括号位置
     "react/jsx-curly-spacing": [1, { "when": "never", "children": true }], //在JSX属性和表达式中加强或禁止大括号内的空格。
     "react/jsx-key": 2, //在数组或迭代器中验证JSX具有key属性
@@ -112,7 +112,7 @@
     "react/no-deprecated": 1, //不使用弃用的方法
     "react/jsx-equals-spacing": 1, //在JSX属性中强制或禁止等号周围的空格
     "react/wrap-multilines": 0,
-    "comma-dangle": 1, //对象字面量项尾不能有逗号
+    "comma-dangle": 0, //对象字面量项尾不能有逗号
     "react/no-multi-comp": 0, //防止每个文件有多个组件定义
     "flowtype/generic-spacing": 0, //泛型对象的尖括号中类型前后的空格规范
     "flowtype/space-after-type-colon": 0, //类型注解分号后的空格规范

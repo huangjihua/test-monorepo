@@ -14,10 +14,13 @@ import './App.css'
 // import EditUser from './classComponent/HOC/ToggleVisible';
 import Ustate from './pages/hooks/useState'
 import { EffectDemo1, EffectDemo2, EffectDemo3 } from './pages/hooks/useEffect'
+import UserContextDemo1 from './pages/hooks/userContext'
+import { Counter, Demo } from './pages/hooks/useReducer'
 import RenderPropsMouseTracker from './pages/render-props'
 import RenderPropsMouseTracker2 from './pages/render-props/index2'
 
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons'
+import Page from './pages/Context/page'
 
 const { SubMenu } = Menu
 const { Header, Content, Sider } = Layout
@@ -69,6 +72,8 @@ const HooksMenuItem = () => {
             key: 'sub2',
             title: 'Hooks',
             list: [
+              { to: '/hooks/useReducer', name: 'useReducer' },
+              { to: '/hooks/userContext', name: 'userContext' },
               { to: '/hooks/useState', name: 'useState' },
               { to: '/hooks/useEffect', name: 'useEffect' },
               { to: '/hooks/hooks', name: 'hooks 学习' },
@@ -124,6 +129,13 @@ function App() {
                     <StatePage />
                     <HotIndex />
                   </Route>
+                  <Route path="/hooks/useReducer">
+                    <Counter />
+                    <Demo />
+                  </Route>
+                  <Route path="/hooks/UserContext">
+                    <UserContextDemo1 />
+                  </Route>
                   <Route path="/hooks/useState">
                     <Ustate />
                     <br />
@@ -131,7 +143,6 @@ function App() {
                       Update State Hank
                     </button>
                   </Route>
-
                   <Route path="/hooks/useEffect">
                     <EffectDemo1 />
                     <EffectDemo2 />
@@ -150,10 +161,8 @@ function App() {
                       <Button value="white">white</Button>
                     </GroupButton>
                   </Route>
-
                   <Route path="/render-props">
                     <RenderPropsMouseTracker />
-
                     <RenderPropsMouseTracker2 />
                   </Route>
                   {/* <Route path="/deep-hook">
