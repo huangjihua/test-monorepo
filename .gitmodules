@@ -1,0 +1,3 @@
+[submodule "packages/gulp-cmd-norm"]
+	path = packages/gulp-cmd-norm
+	url = https://github.com/huangjihua/gulp-cmd-norm.git
