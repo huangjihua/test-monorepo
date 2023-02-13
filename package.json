@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pull:react-demo": "git subtree pull --prefix=packages/react-demo https://github.com/huangjihua/react-demo.git master",
+    "push:react-demo": "git subtree push --prefix=packages/react-demo https://github.com/huangjihua/react-demo.git master"
   },
   "repository": {
     "type": "git",
